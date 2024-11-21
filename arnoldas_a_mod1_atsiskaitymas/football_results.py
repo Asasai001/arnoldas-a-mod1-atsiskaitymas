@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import pandas as pd
 
 website = 'https://www.adamchoi.co.uk/overs/detailed'
 path = 'C:\\Tools\\chromedriver\\chromedriver.exe'
@@ -48,3 +49,7 @@ for i in range(len(date)):
 
 
 driver.quit()
+
+data_frame = pd.DataFrame({'date': date, 'home_team': home_team, 'score': score, 'away_team': away_team})
+data_frame.to_csv('football_results.csv', index=False)
+print(data_frame)
