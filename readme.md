@@ -5,6 +5,8 @@ Package for scraping book information and football match results from specified 
 # **Installation**
 pip install arnoldas-a-mod1-atsiskaitymas
 
+PyPI Link: https://pypi.org/project/arnoldas-a-mod1-atsiskaitymas/
+
 # **Usage**
 A package is using selenium for web scraping and supports data export in CSV and dictionary formats. **IMPORTANT**. In order to use a package, user needs to install Chrome WebDriver
 and Update the path in the football_results.py and book_info.py files from path = 'C:\\Tools\\chromedriver\\chromedriver.exe' to yours
