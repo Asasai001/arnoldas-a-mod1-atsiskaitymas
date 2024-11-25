@@ -64,12 +64,3 @@ def book_info(book_info_csv = 'book_info.csv'):
     data_frame.to_csv(book_info_csv, index=False)
 
     return results
-
-
-
-
-
-
-
-
-

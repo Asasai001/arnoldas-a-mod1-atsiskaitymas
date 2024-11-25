@@ -63,4 +63,3 @@ def footbal_results():
     data_frame.to_csv('football_results.csv', index=False)
     print(data_frame)
 
-footbal_results()
