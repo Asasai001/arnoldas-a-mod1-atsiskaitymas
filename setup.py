@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as readme:
 
 setup(
     name="arnoldas_a_mod1_atsiskaitymas",
-    version="0.1.1",
+    version="0.1.2",
     description="A Python project for scraping book info and football results",
     long_description=long_description,
     long_description_content_type="text/markdown",
