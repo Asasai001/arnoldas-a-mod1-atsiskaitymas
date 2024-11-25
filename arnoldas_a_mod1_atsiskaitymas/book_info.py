@@ -46,7 +46,7 @@ def book_info(book_info_csv = 'book_info.csv'):
         title = book.find_element(By.TAG_NAME, 'h3').text
         price = book.find_element(By.CLASS_NAME, 'price_color').text
         rating_element = book.find_element(By.XPATH, './p[contains(@class, "star-rating")]')
-        rating_class = rating_element.get_attribute('class')
+        rating_class = rating_element.get_dom_attribute('class')
         rating = rating_class.split()[-1]
         book_title.append(title)
         book_price.append(price)

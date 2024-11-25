@@ -2,8 +2,10 @@ import unittest
 from unittest.mock import patch, MagicMock
 # importuojamas patch, kad būtų galima imituoti funkcijas ir klases
 # taip pat MagicMock, kad būtų galima sukurti objekto imitacija
-import os
 # importuojamas os, kad būtų galima patikrinti ar sukurtas CSV failas
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from arnoldas_a_mod1_atsiskaitymas.book_info import book_info
 
 class TestBookInfo(unittest.TestCase):
@@ -23,31 +25,31 @@ class TestBookInfo(unittest.TestCase):
             MagicMock(text="£51.77"),
             # testuojant rodoma klaida dėl reitingo, book_rating grazina MagicMoc objeką
             # vietoje tikrosios reiksmes
-            MagicMock(get_attribute=lambda name: "star-rating Three"),
+            MagicMock(get_dom_attribute=lambda name: "star-rating Three"),
         ]
         mock_element2 = MagicMock()
         mock_element2.find_element.side_effect = [
             MagicMock(text="Tipping the Velvet"),
             MagicMock(text="£53.74"),
-            MagicMock(get_attribute=lambda name: "star-rating One"),
+            MagicMock(get_dom_attribute=lambda name: "star-rating One"),
         ]
         mock_element3 = MagicMock()
         mock_element3.find_element.side_effect = [
             MagicMock(text="Soumission"),
             MagicMock(text="£50.10"),
-            MagicMock(get_attribute=lambda name: "star-rating One"),
+            MagicMock(get_dom_attribute=lambda name: "star-rating One"),
         ]
         mock_element4 = MagicMock()
         mock_element4.find_element.side_effect = [
             MagicMock(text="Sharp Objects"),
             MagicMock(text="£47.82"),
-            MagicMock(get_attribute=lambda name: "star-rating Four"),
+            MagicMock(get_dom_attribute=lambda name: "star-rating Four"),
         ]
         mock_element5 = MagicMock()
         mock_element5.find_element.side_effect = [
             MagicMock(text="Sapiens: A Brief History of Humankind"),
             MagicMock(text="£54.23"),
-            MagicMock(get_attribute=lambda name: "star-rating Five"),
+            MagicMock(get_dom_attribute=lambda name: "star-rating Five"),
         ]
 
         mock_driver.find_elements.return_value = [mock_element1, mock_element2, mock_element3, mock_element4, mock_element5]

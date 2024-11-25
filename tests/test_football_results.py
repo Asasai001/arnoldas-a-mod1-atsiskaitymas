@@ -4,6 +4,9 @@ from unittest.mock import patch, MagicMock
 # taip pat MagicMock, kad būtų galima sukurti objekto imitacija
 import os
 # importuojamas os, kad būtų galima patikrinti ar sukurtas CSV failas
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from arnoldas_a_mod1_atsiskaitymas.football_results import footbal_results
 
 class TestFootballResults(unittest.TestCase):

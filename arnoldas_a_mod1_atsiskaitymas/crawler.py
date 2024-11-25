@@ -1,8 +1,8 @@
 import time
 # importuotas time, kad būtų galima naudoti timeout funkciją
 import pandas as pd
-from arnoldas_a_mod1_atsiskaitymas.football_results import footbal_results
-from arnoldas_a_mod1_atsiskaitymas.book_info import book_info
+from footbal_results import footbal_results
+from book_info import book_info
 
 class TimeoutException(Exception):
     pass
@@ -18,11 +18,11 @@ class Crawl:
         try:
             if self.source == "football_results":
                 footbal_results()
-                data = pd.read_csv("../samples/football_results.csv")
+                file_path = "football_results.csv"
 
             elif self.source == "book_info":
                 book_info("book_info.csv")
-                data = pd.read_csv("../samples/book_info.csv")
+                file_path = "book_info.csv"
 
             else:
                 raise ValueError("Pasirinkite 'football_results' arba 'book_info'.")
@@ -31,10 +31,14 @@ class Crawl:
                 raise TimeoutException("Funkcijos vykdymo laikas baigėsi.")
 
             if self.return_format == "csv":
-                print("Rezultatai išsaugoti CSV faile.")
+                print(f"Rezultatai išsaugoti faile: {file_path}")
                 return None
             elif self.return_format == "dict":
-                return data.to_dict(orient="records")
+                try:
+                    data = pd.read_csv(file_path)
+                    return data.to_dict(orient="records")
+                except FileNotFoundError:
+                    raise FileNotFoundError(f"Nepavyko rasti failo: {file_path}")
             else:
                 raise ValueError("Netinkamas formatas. Pasirinkite 'csv' arba 'dict'.")
 
