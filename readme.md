@@ -20,7 +20,7 @@ A package can be run from main, user has to determine:
 # **Example**
 
 ```python
-from arnoldas_a_mod1_atsiskaitymas.crawler import Crawl
+from crawler import Crawl
 
 def main():
     source = "book_info"

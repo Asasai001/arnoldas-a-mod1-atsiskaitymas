@@ -7,7 +7,7 @@ import os
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from arnoldas_a_mod1_atsiskaitymas.football_results import footbal_results
+from arnoldas_a_mod1_atsiskaitymas.football_results import football_results
 
 class TestFootballResults(unittest.TestCase):
     # webdriver ir WebDriverWait pakeisti mock objektais
@@ -24,7 +24,7 @@ class TestFootballResults(unittest.TestCase):
         mock_element.click.return_value = None
         mock_wait.return_value.until.return_value = mock_element
 
-        footbal_results()
+        football_results()
 
         # patikrinama ar URL buvo iškviestas kartą ir ar su tinkamu URL
         mock_driver.get.assert_called_once_with('https://www.adamchoi.co.uk/overs/detailed')
@@ -41,7 +41,7 @@ class TestFootballResults(unittest.TestCase):
         mock_element.click.return_value = None
         mock_wait.return_value.until.return_value = mock_element
 
-        footbal_results()
+        football_results()
 
         mock_element.click.assert_called_once()
 
@@ -77,7 +77,7 @@ class TestFootballResults(unittest.TestCase):
         mock_driver.find_elements.return_value = [mock_row1, mock_row2]
 
         # atidaromas URL, paspaudžiama "All Matches" ir gražinamos eilutės mock_row 1 ir 2
-        footbal_results()
+        football_results()
 
     @patch('arnoldas_a_mod1_atsiskaitymas.football_results.webdriver.Chrome')
     @patch('arnoldas_a_mod1_atsiskaitymas.football_results.WebDriverWait')
@@ -93,7 +93,7 @@ class TestFootballResults(unittest.TestCase):
         mock_wait.return_value.until.return_value = mock_element
 
 
-        footbal_results()
+        football_results()
 
         # patikrinama ar CSV failas egzistuoja
         self.assertTrue(os.path.exists('football_results.csv'), "CSV failas nebuvo sukurtas")

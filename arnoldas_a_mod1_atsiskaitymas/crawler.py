@@ -1,7 +1,7 @@
 import time
 # importuotas time, kad būtų galima naudoti timeout funkciją
 import pandas as pd
-from footbal_results import footbal_results
+from football_results import football_results
 from book_info import book_info
 
 class TimeoutException(Exception):
@@ -17,7 +17,7 @@ class Crawl:
     def web_results(self):
         try:
             if self.source == "football_results":
-                footbal_results()
+                football_results()
                 file_path = "football_results.csv"
 
             elif self.source == "book_info":

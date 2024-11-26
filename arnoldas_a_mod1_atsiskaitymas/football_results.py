@@ -10,7 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd
 # importuojamos pandas, kad būtų gaunamas "švaresnis" rezultatas ir išsaugomas CSV failas
 
-def footbal_results():
+def football_results():
     website = 'https://www.adamchoi.co.uk/overs/detailed'
     # testuojant funkciją, reikia nurodyti tikslią chromedriver vietą
     path = 'C:\\Tools\\chromedriver\\chromedriver.exe'
